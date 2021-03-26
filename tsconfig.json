@@ -1,0 +1,39 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "jsx": "react",
+        "target": "es5",
+        "lib": ["es6", "dom"],
+        "types": ["node", "jest"],
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "noImplicitThis": true,
+        "noImplicitAny": true,
+        "typeRoots": ["typings", "./node_modules/@types"],
+        "baseUrl": ".",
+        "paths": {
+            "@src/*": ["src/*"],
+            "@lib/*": ["src/lib/*"],
+            "@config/*": ["src/config/*"],
+            "@common/*": ["src/common/*"],
+            "@components/*": ["src/components/*"],
+            "@utils/*": ["src/utils/*"],
+            "@pages/*": ["src/pages/*"],
+            "@routes/*": ["src/services/*"],
+            "@services/*": ["src/services/*"],
+            "@store/*": ["src/store/*"],
+            "@assets/*": ["src/assets/*"],
+            "@mock/*": ["/mock"]
+        },
+    },
+    "include": [
+        "./src/*"
+    ],
+    "exclude": ["node_modules"],
+    "files": [
+        "./global.d.ts" // 申明一个全局的.d.ts
+    ],
+}

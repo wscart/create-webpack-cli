@@ -1,0 +1,10 @@
+version: '3'
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    image: webpack-app-cli:latest
+    ports:
+      - 9000:9000
+    container_name: webpack-app-cli
