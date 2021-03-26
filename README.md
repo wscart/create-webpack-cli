@@ -31,9 +31,9 @@
 ├── config  // webpack配置文件
 |   ├── paths.js  // 向外导出各种路径
 │   ├── webpack.analyze.js // 观察各模块的占用情况
-│   ├── webpack.common.js  // 公共 webpack 配置入口
-|   ├── webpack.dev.js     // webpack开发模式配置
-│   └── webpack.prod.js    // webpack正式模式配置
+│   ├── webpack.common.js  // webpack 基础配置
+|   ├── webpack.dev.js     // webpack开发配置
+│   └── webpack.prod.js    // webpack正式配置
 ├── mock  // mock
 │   └── index.js
 ├── public  // 静态资源
@@ -78,3 +78,8 @@
 ### 特别鸣谢
 - 感谢 JasonJiang 提供的搭建webpack脚手架教程
 https://juejin.cn/user/3491704662930871
+
+### 参考资料
+- webpack文档 https://webpack.docschina.org/
+
+PS: 如有不当或错误之处恳请指正。
