@@ -96,7 +96,14 @@ module.exports = {
                                 },
                                 sourceMap: isEnvProduction && shouldUseSourceMap,
                             }
-                        }, 'postcss-loader', 'less-loader', {
+                        }, 'postcss-loader', {
+                            loader: 'less-loader',
+                            options: {
+                                lessOptions: {
+                                    javascriptEnabled: true
+                                }
+                            }
+                        }, {
                             loader: 'style-resources-loader', // 此处为了公共的sass样式能够全局加载，而不用每个组件都单独引用。
                             options: {
                                 patterns: paths.appGlobalStyles
@@ -159,9 +166,9 @@ module.exports = {
             '@common': paths.appCommon,
             '@public': paths.appPublic,
             '@lib': paths.appLib,
-            '@config': paths.appConfig, 
-            '@store': paths.appStore, 
-            '@services': paths.appServices, 
+            '@config': paths.appConfig,
+            '@store': paths.appStore,
+            '@services': paths.appServices,
             '@routes': paths.appRoutes,
             '@mock': paths.appMock,
             '@': paths.appRoot
@@ -182,7 +189,7 @@ module.exports = {
             ignoreOrder: true, // 忽略有关顺序冲突的警告
         }),
         new webpack.DefinePlugin({
-            'process.env' : {
+            'process.env': {
                 MOCK: JSON.stringify(MOCK) // 判断是否使用Mockjs
             }
         }),
