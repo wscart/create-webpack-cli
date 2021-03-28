@@ -75,11 +75,11 @@
 └── yarn.lock
 </pre>
 
-### 特别鸣谢
+# 特别鸣谢
 - 感谢 JasonJiang 提供的搭建webpack脚手架教程
 https://juejin.cn/user/3491704662930871
 
-### 参考资料
+# 参考资料
 - webpack文档 https://webpack.docschina.org/
 
 PS: 如有不当或错误之处恳请指正。
