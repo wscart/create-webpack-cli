@@ -25,7 +25,7 @@
 ### mock环境
 > process.env.MOCK === 'true'
 
-## 目录结构
+# 目录结构
 <pre>
 .
 ├── config  // webpack配置文件
