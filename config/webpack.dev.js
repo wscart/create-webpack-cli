@@ -8,6 +8,7 @@ const common = require('./webpack.common')
 module.exports = merge(common, {
     mode: "development",
     devtool: 'inline-source-map',
+    target: "web",
     plugins: [
         new HtmlWebpackPlugin({
             template: paths.appHtml,

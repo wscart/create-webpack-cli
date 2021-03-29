@@ -15,6 +15,7 @@ const devServerOptions = Object.assign({}, webpackConfig.devServer, {
     open: true, // 自动打开浏览器
     compress: true, // gzip 压缩
     stats: "minimal",
+    hot: true, // 开启热更新
 });
 const server = new WebpackDevServer(compiler, devServerOptions);
 
