@@ -20,7 +20,7 @@ module.exports = {
     entry: paths.appSrc,
     output: {
         path: paths.appBuild,
-        publicPath: "/",
+        publicPath: "./",
         filename: 'scripts/[contenthash].bundle.js',
         chunkFilename: 'chunk/[chunkhash].js',
         assetModuleFilename: 'static/images/[hash][ext][query]'
