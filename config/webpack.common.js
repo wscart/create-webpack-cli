@@ -78,7 +78,7 @@ module.exports = {
                             options: {
                                 importLoaders: 1, // 0 => 无 loader(默认); 1 => postcss-loader; 2 => postcss-loader, less-loader
                                 modules: {
-                                    localIdentName: isEnvProduction ? '[hash:base64:5]_[local]' : '[local]'
+                                    localIdentName: '[local]'
                                 },
                                 sourceMap: isEnvProduction && shouldUseSourceMap,
                             }
@@ -92,7 +92,7 @@ module.exports = {
                             options: {
                                 importLoaders: 3, // 查询参数 importLoaders，用于配置「css-loader 作用于 @import 的资源之前」有多少个 loader
                                 modules: {
-                                    localIdentName: isEnvProduction ? '[hash:base64:5]_[local]' : '[local]'
+                                    localIdentName: '[local]'
                                 },
                                 sourceMap: isEnvProduction && shouldUseSourceMap,
                             }
