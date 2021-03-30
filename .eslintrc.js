@@ -25,6 +25,7 @@ module.exports = {
         "@typescript-eslint/no-explicit-any": ["off"],
         "no-unused-vars": "off",
         "@typescript-eslint/no-unused-vars": ["off"],
+        "@typescript-eslint/explicit-module-boundary-types": "off", // ts每个函数都要显式声明返回值
         "no-undef": 0
     }
 };
