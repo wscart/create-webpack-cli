@@ -53,16 +53,6 @@ module.exports = {
                                         alias: {},	// 这里可以申明一些路径别名
                                     },
                                 ],
-                                ['@babel/plugin-transform-runtime'],
-                                ['@babel/plugin-proposal-class-properties', { loose: true }],
-                                [
-                                    '@babel/plugin-proposal-decorators', // 支持装饰器
-                                    {
-                                        legacy: true,
-                                    },
-                                ],
-                                '@babel/plugin-syntax-dynamic-import', // 动态导入
-                                '@babel/plugin-proposal-optional-chaining', // 这两个是用来处理 a && a.b => a.?b的 避免多层对象写的过于复杂
                             ],
                         },
                     },

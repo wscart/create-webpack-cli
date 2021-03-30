@@ -19,6 +19,7 @@
             "import",
             {
                 "libraryName": "antd",
+                "libraryDirectory":"es",
                 "style": true
             }
         ],
@@ -34,6 +35,8 @@
                 "loose": true
             }
         ],
-        "@babel/plugin-syntax-dynamic-import"
+        "@babel/plugin-transform-runtime",
+        "@babel/plugin-syntax-dynamic-import",
+        "@babel/plugin-proposal-optional-chaining" // 这两个是用来处理 a && a.b => a.?b的 避免多层对象写的过于复杂
     ]
 }
