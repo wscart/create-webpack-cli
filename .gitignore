@@ -5,6 +5,7 @@
 /dist
 /build
 /.pnp
+/dll
 .pnp.js
 yarn.lock
 package-lock.json
