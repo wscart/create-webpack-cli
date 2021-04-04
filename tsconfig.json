@@ -16,7 +16,6 @@
         "esModuleInterop": true,                  /* 允许编译生成文件时，在代码中注入工具类(__importDefault、__importStar)对ESM与commonjs混用情况做兼容处理*/
         /* 严格的类型检查选项 */
         "strict": true,                           /* 严格模式开关 等价于noImplicitAny、strictNullChecks、strictFunctionTypes、strictBindCallApply等设置true */
-        "noImplicitany": true,                    /* 当在表达式和声明上有隐含的any时报错 */
         "noImplicitThis": true,                   /* 当this表达式的值为any时，生成一个错误 */
         "strictNullChecks": true,                 /* 启用严格的Null检查 */
         "alwaysStrict": true,                     /* 以严格模式检查每个模块，并在所有文件中加入'use strict' */
@@ -41,7 +40,7 @@
             "@services/*": ["src/services/*"],
             "@store/*": ["src/store/*"],
             "@assets/*": ["src/assets/*"],
-            "@mock/*": ["/mock"]
+            "@mock/*": ["/mock/*"]
         },
         "typeRoots": [                            /* 要包含的类型声明文件路径列表*/
             "typings", 
@@ -51,7 +50,7 @@
             "node", 
             "jest"
         ],
-        "allowSyntheticDefaultImports": false,    /* 允许从没有设置默认导出的模块中默认导入，仅用于提示，不影响编译结果*/
+        "allowSyntheticDefaultImports": true,    /* 允许从没有设置默认导出的模块中默认导入，仅用于提示，不影响编译结果*/
         /* 其他选项 */
         "experimentalDecorators": true,           /* 启用实验性的ES装饰器 */
         "emitDecoratorMetadata": true,            /* 为装饰器提供元数据的支持 */

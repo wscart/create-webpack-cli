@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import "normalize.css";
-import xm from '@assets/images/xm.jpeg';
+import xm from './assets/images/xm.jpeg';
 import styles from './index.less';
 
 import { getUserCurrentData } from '@src/services/app';
