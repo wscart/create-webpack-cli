@@ -1,20 +1,35 @@
 {
     "compilerOptions": {
-        "allowJs": true,
-        "jsx": "react",
-        "target": "es5",
-        "lib": ["es6", "dom"],
-        "types": ["node", "jest"],
-        "module": "commonjs",
-        "esModuleInterop": true,
-        "moduleResolution": "node",
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "noImplicitThis": true,
-        "noImplicitAny": true,
-        "typeRoots": ["typings", "./node_modules/@types"],
-        "baseUrl": ".",
-        "paths": {
+        /* 编译选项 */
+        "target": "ESNext",                       /* 编译目标ES版本*/
+        "module": "commonjs",                     /* 编译目标模块系统*/
+        "lib": ["es6", "dom"],                    /* 编译过程中需要引入的库文件列表*/
+        // "incremental": true,                   /* 增量编译 提高编译速度*/
+        "allowJs": true,                          /* 允许编译javascript文件。 */
+        "checkJs": true,                          /* 报告JavaScript文件中的错误 */
+        "jsx": "react",                           /* 在 .tsx文件里支持JSX */
+        "declaration": true,                      /* 编译时创建声明文件 */
+        "sourceMap": true,                        /* 生成相应的.map文件 */
+        "outDir": "./build",                      /* ts编译输出目录 */
+        "rootDir": "./src",                       /* ts编译根目录. */
+        // "importHelpers": true,                 /* 从tslib导入辅助工具函数(如__importDefault)*/
+        "esModuleInterop": true,                  /* 允许编译生成文件时，在代码中注入工具类(__importDefault、__importStar)对ESM与commonjs混用情况做兼容处理*/
+        /* 严格的类型检查选项 */
+        "strict": true,                           /* 严格模式开关 等价于noImplicitAny、strictNullChecks、strictFunctionTypes、strictBindCallApply等设置true */
+        "noImplicitany": true,                    /* 当在表达式和声明上有隐含的any时报错 */
+        "noImplicitThis": true,                   /* 当this表达式的值为any时，生成一个错误 */
+        "strictNullChecks": true,                 /* 启用严格的Null检查 */
+        "alwaysStrict": true,                     /* 以严格模式检查每个模块，并在所有文件中加入'use strict' */
+        /* 额外的检查 */
+        "noUnusedLocals": true,                   /* 未使用局部变量报错*/
+        "noUnusedParameters": true,               /* 未使用参数报错*/
+        "noImplicitReturns": true,                /* 有代码路径没有返回值时报错*/
+        "noFallthroughCasesInSwitch": true,       /* 不允许switch的case语句贯穿*/
+        /* 模块解析选项 */
+        "moduleResolution": "node",               /* 模块解析策略 */
+        "baseUrl": ".",                           /* 工作根目录 */
+        "paths": {                                /* 指定模块的路径，和baseUrl有关联，和webpack中resolve.alias配置一样 */
+            "@/*": ["*","src/*"],
             "@src/*": ["src/*"],
             "@lib/*": ["src/lib/*"],
             "@config/*": ["src/config/*"],
@@ -28,12 +43,25 @@
             "@assets/*": ["src/assets/*"],
             "@mock/*": ["/mock"]
         },
+        "typeRoots": [                            /* 要包含的类型声明文件路径列表*/
+            "typings", 
+            "./node_modules/@types"
+        ],
+        "types": [                                /* 指定引入的类型声明文件，默认是自动引入所有声明文件，一旦指定该选项，则会禁用自动引入，改为只引入指定的类型声明文件，如果指定空数组[]则不引用任何文件 */
+            "node", 
+            "jest"
+        ],
+        "allowSyntheticDefaultImports": false,    /* 允许从没有设置默认导出的模块中默认导入，仅用于提示，不影响编译结果*/
+        /* 其他选项 */
+        "experimentalDecorators": true,           /* 启用实验性的ES装饰器 */
+        "emitDecoratorMetadata": true,            /* 为装饰器提供元数据的支持 */
     },
-    "include": [
-        "./src/*"
+    "include": [                                  /* 需要编译的文件 */
+        "./src/*",
+        "typings/**/*.ts"
     ],
-    "exclude": ["node_modules"],
-    "files": [
-        "./global.d.ts" // 申明一个全局的.d.ts
+    "exclude": ["node_modules"],                  /* 编译需要排除的文件 */
+    "files": [                                    /* 指定哪些文件使用该配置（属于手动一个个指定文件） */
+        "typings.d.ts" // 申明一个全局的.d.ts
     ],
 }
