@@ -8,6 +8,7 @@ const CompressionPlugin = require('compression-webpack-plugin'); // 提供带 Co
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin'); // 优化和压缩CSS资源的插件
 const TerserPlugin = require('terser-webpack-plugin'); // 优化和压缩JS资源的插件，以前叫ugly-wepack-plugin
 const WebpackBuildNotifierPlugin = require('webpack-build-notifier'); // 开启通知
+const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin'); // 在html中自动引入资源
 
 const common = require('./webpack.common')
 
@@ -68,6 +69,12 @@ module.exports = merge(common, {
             title: "爸爸，打包成功了",
             suppressSuccess: true, // don't spam success notifications
         }),
+        new webpack.DllReferencePlugin({
+            manifest: paths.appDllMainfest
+        }),
+        new AddAssetHtmlWebpackPlugin({
+            filepath: paths.appDllVendor
+        })
     ],
     performance: {
         hints: 'warning',

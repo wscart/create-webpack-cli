@@ -24,6 +24,9 @@ module.exports = {
     appBuild: resolveApp("build"), // 打包路径
     appPublic: resolveApp("public"), // 静态资源路径
     appHtml: resolveApp("public/index.html"), // html 模板路径
+    appDll: resolveApp("dll"), // Dll动态链接库
+    appDllMainfest: resolveApp("dll/mainfest.json"), // 提供与包的映射关系
+    appDllVendor: resolveApp("dll/vendor.js"), // 在html中自动引入资源
     appIndexJs: resolveModule(resolveApp, "src/index"), // 打包入口路径
     appComponents: resolveModule(resolveApp, "src/components"), // 组件路径
     appUtils: resolveModule(resolveApp, "src/utils"), // 工具路径
