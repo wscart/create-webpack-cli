@@ -82,8 +82,4 @@ module.exports = merge(common, {
         maxAssetSize: 512000
     },
     stats: "normal", //标准输出
-    externals: {
-        'react': 'React',
-        'react-dom': 'ReactDOM'
-    }
 });
