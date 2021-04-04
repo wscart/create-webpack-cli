@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const { merge } = require('webpack-merge')
+const { merge } = require('webpack-merge');
 const chalk = require("chalk");
 const paths = require("./paths");  // 路径
 const HtmlWebpackPlugin = require("html-webpack-plugin"); // 自动生成html
@@ -82,4 +82,8 @@ module.exports = merge(common, {
         maxAssetSize: 512000
     },
     stats: "normal", //标准输出
+    externals: {
+        'react': 'React',
+        'react-dom': 'ReactDOM'
+    }
 });

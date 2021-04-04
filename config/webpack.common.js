@@ -4,6 +4,7 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin'); /
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin'); // 引入另一个tsconfig.json文件，该文件使用esnext的模块方式。
 const MiniCssExtractPlugin = require("mini-css-extract-plugin") // 提取css的 这样就可以把js和css分开，然后在加载的时候 并行加载
 const { CleanWebpackPlugin } = require("clean-webpack-plugin"); //打包前清空build目录文件
+const WebpackBuildNotifierPlugin = require('webpack-build-notifier'); // 开启通知
 
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
@@ -18,6 +19,7 @@ const isEnvProduction = NODE_ENV === 'production';
 
 module.exports = {
     entry: paths.appSrc,
+    context: process.cwd(),
     output: {
         path: paths.appBuild,
         publicPath: "./",
@@ -120,7 +122,7 @@ module.exports = {
     },
     resolve: {
         modules: [paths.appNodeModules],
-        extensions: ['.tsx', '.ts', '.js', '.css', '.less'],
+        extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
         mainFields: ['browser', 'jsnext:main', 'main'],
         alias: {
             moment$: 'moment/moment.js',
@@ -148,7 +150,16 @@ module.exports = {
     devServer: {},
     plugins: [
         new CleanWebpackPlugin(),
-        new FriendlyErrorsWebpackPlugin(),
+        new FriendlyErrorsWebpackPlugin({
+            onErrors:(severity, errors)=>{
+                const error = errors[0]
+                new WebpackBuildNotifierPlugin({
+                    title: "webpack编译失败",
+                    message:severity+": "+error.name,
+                    suppressWarning: true, // don't spam success notifications
+                })
+            }
+        }),
         new MiniCssExtractPlugin({
             filename: isEnvDevelopment ? 'static/css/[name].css' : 'static/css/[name].[hash].css',
             chunkFilename: isEnvDevelopment ? 'static/css/[id].css' : 'static/css/[id].[hash].css',
