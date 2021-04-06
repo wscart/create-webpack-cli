@@ -1,9 +1,9 @@
 {
     "compilerOptions": {
         /* 编译选项 */
-        "target": "ESNext",                       /* 编译目标ES版本*/
+        "target": "es5",                          /* 编译目标ES版本*/
         "module": "commonjs",                     /* 编译目标模块系统*/
-        "lib": ["es6", "dom"],                    /* 编译过程中需要引入的库文件列表*/
+        "lib": ["es7", "dom"],                    /* 编译过程中需要引入的库文件列表*/
         // "incremental": true,                   /* 增量编译 提高编译速度*/
         "allowJs": true,                          /* 允许编译javascript文件。 */
         "checkJs": true,                          /* 报告JavaScript文件中的错误 */
@@ -12,7 +12,7 @@
         "sourceMap": true,                        /* 生成相应的.map文件 */
         "outDir": "./build",                      /* ts编译输出目录 */
         "rootDir": "./src",                       /* ts编译根目录. */
-        // "importHelpers": true,                 /* 从tslib导入辅助工具函数(如__importDefault)*/
+        "importHelpers": true,                    /* 从tslib导入辅助工具函数(如__importDefault)*/
         "esModuleInterop": true,                  /* 允许编译生成文件时，在代码中注入工具类(__importDefault、__importStar)对ESM与commonjs混用情况做兼容处理*/
         /* 严格的类型检查选项 */
         "strict": true,                           /* 严格模式开关 等价于noImplicitAny、strictNullChecks、strictFunctionTypes、strictBindCallApply等设置true */
@@ -26,9 +26,9 @@
         "noFallthroughCasesInSwitch": true,       /* 不允许switch的case语句贯穿*/
         /* 模块解析选项 */
         "moduleResolution": "node",               /* 模块解析策略 */
-        "baseUrl": ".",                           /* 工作根目录 */
+        "baseUrl": "./",                           /* 工作根目录 */
         "paths": {                                /* 指定模块的路径，和baseUrl有关联，和webpack中resolve.alias配置一样 */
-            "@/*": ["*","src/*"],
+            "@/*": ["./*"],
             "@src/*": ["src/*"],
             "@lib/*": ["src/lib/*"],
             "@config/*": ["src/config/*"],
@@ -40,6 +40,7 @@
             "@services/*": ["src/services/*"],
             "@store/*": ["src/store/*"],
             "@assets/*": ["src/assets/*"],
+            "@hooks/*": ["src/hooks/*"],
             "@mock/*": ["/mock/*"]
         },
         "typeRoots": [                            /* 要包含的类型声明文件路径列表*/
@@ -50,7 +51,7 @@
             "node", 
             "jest"
         ],
-        "allowSyntheticDefaultImports": true,    /* 允许从没有设置默认导出的模块中默认导入，仅用于提示，不影响编译结果*/
+        "allowSyntheticDefaultImports": true,     /* 允许从没有设置默认导出的模块中默认导入，仅用于提示，不影响编译结果*/
         /* 其他选项 */
         "experimentalDecorators": true,           /* 启用实验性的ES装饰器 */
         "emitDecoratorMetadata": true,            /* 为装饰器提供元数据的支持 */
@@ -59,7 +60,22 @@
         "./src/*",
         "typings/**/*.ts"
     ],
-    "exclude": ["node_modules"],                  /* 编译需要排除的文件 */
+    "exclude": [                                  /* 编译需要排除的文件 */
+        "node_modules",
+        "build",
+        "browser",
+        "config",
+        "dist",
+        "scripts",
+        "coverage",
+        "acceptance-tests",
+        "webpack",
+        "jest",
+        "coverage",
+        "src/Util/**",
+        "**.config.js",
+        "**/*.spec.tsx"
+    ],
     "files": [                                    /* 指定哪些文件使用该配置（属于手动一个个指定文件） */
         "typings.d.ts" // 申明一个全局的.d.ts
     ],
