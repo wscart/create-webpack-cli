@@ -43,5 +43,5 @@ module.exports = {
     appServices: resolveModule(resolveApp, "src/services"), 
     appRoutes: resolveModule(resolveApp, "src/routes"),
     appMock: resolveModule(resolveApp, ("mock")),
-    appGlobalStyles: path.resolve(appDirectory, "./src/global.less"), // Less 全局样式
+    appGlobalVariable: path.resolve(appDirectory, "./src/variable.less"), // Less 全局样式
 };

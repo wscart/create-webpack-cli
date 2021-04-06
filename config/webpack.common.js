@@ -77,7 +77,7 @@ module.exports = {
                         }, {
                             loader: 'style-resources-loader', // 此处为了公共的sass样式能够全局加载，而不用每个组件都单独引用。
                             options: {
-                                patterns: paths.appGlobalStyles
+                                patterns: paths.appGlobalVariable
                             }
                         }],
                         sideEffects: true,
