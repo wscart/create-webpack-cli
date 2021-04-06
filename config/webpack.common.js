@@ -37,28 +37,7 @@ module.exports = {
             {
                 test: /\.(ts|tsx|js|jsx)?$/,
                 exclude: /node_modules/,
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            sourceType: 'unambiguous',
-                            presets: [
-                                '@babel/preset-env',
-                                '@babel/preset-react',	// 编译react
-                                '@babel/preset-typescript',	// 编译ts
-                            ],
-                            plugins: [
-                                [
-                                    'module-resolver',	// 模块处理
-                                    {
-                                        extensions: ['.js', '.jsx', '.ts', '.tsx', '.less', '.css'],	// 自动填充后缀，例如写'./index' 就会按着数组顺序去路径下找对应的文件
-                                        alias: {},	// 这里可以申明一些路径别名
-                                    },
-                                ],
-                            ],
-                        },
-                    },
-                ],
+                use: ['babel-loader'],
             },
             {
                 oneOf: [
